@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корица - Кофейня</title>
+    <link rel="icon" type="image/jpeg" href="images/logotip.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+   <header class="header">
+    <div class="container header__container">
+        <a href="#" class="header__logo-link">
+            <img src="images/logotip.png" alt="Корица" class="header__logo-icon">
+            <span class="header__logo-text">КОРИЦА</span>
+        </a>
+        <nav class="header__nav">
+            <a href="#about" class="header__link">О нас</a>
+            <a href="#menu" class="header__link">Меню</a>
+            <a href="#photos" class="header__link">Фото</a>
+            <a href="#feedback" class="header__link">Написать</a>
+            <a href="#contacts" class="header__link">Контакты</a>
+        </nav>
+        <a href="https://yandex.ru/maps/-/CPXCbD-9" target="_blank" class="header__btn btn-primary">Как добраться</a>
+    </div>
+</header>
+
+    <!-- Main Hero Section -->
+    <main class="hero">
+        <div class="container hero__container">
+            <div class="hero__content">
+                <p class="hero__subtitle">КОФЕЙНЯ • ВАРИМ • С 2017</p>
+                <h1 class="hero__title">Кофе, ради которого стоит выйти из дома</h1>
+                <p class="hero__description">
+                    Корица — это уютное место, где Кофейня «Корица» можно насладиться ароматным кофе и свежей выпечкой.
+                </p>
+                <div class="hero__buttons">
+                    <a href="#menu" class="btn btn-primary">Посмотреть меню</a>
+                    <a href="https://yandex.ru/maps/-/CPXCbD-9" target="_blank" class="hero__location">
+                        <span class="hero__location-icon">→</span>
+                        ул. Большая Московская 82
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="images/main.jpg" alt="Эспрессо-Тоник" class="hero__img">
+            </div>
+        </div>
+    </main>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container info-section__container">
+            <div class="info-block">
+                <h3 class="info-block__title">ЧАСЫ</h3>
+                <p class="info-block__text">Пн–Вс: 8:00–21:00</p>
+            </div>
+            <div class="info-block">
+                <h3 class="info-block__title">СЕГОДНЯ В БРЕ</h3>
+                <p class="info-block__text">Slow-кофе</p>
+                <p class="info-block__text-secondary">освежающий летний напиток</p>
+            </div>
+            <div class="info-block">
+                <h3 class="info-block__title">АТМОСФЕРА</h3>
+                <p class="info-block__text">Тихо, тепло, уютно</p>
+                <p class="info-block__text-secondary">есть розетки и Wi-Fi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Favorites Section -->
+    <section class="favorites">
+        <div class="container">
+            <div class="favorites__header">
+                <div class="favorites__top">
+                    <p class="favorites__subtitle">ЧТО ПОПРОБОВАТЬ</p>
+                    <h2 class="favorites__title">Любимое у гостей</h2>
+                </div>
+                <a href="#menu" class="favorites__link">
+    <span>→</span> Всё меню
+</a>
+            </div>
+            
+            <div class="favorites__grid">
+                <!-- Item 1: Бамбл -->
+                <div class="favorite-item">
+                    <div class="favorite-item__header">
+                        <h3 class="favorite-item__name">Бамбл</h3>
+                        <span class="favorite-item__price">360 ₽</span>
+                    </div>
+                    <p class="favorite-item__ingredients">Эспрессо · сок · сироп</p>
+                    <div class="favorite-item__image">
+                        <img src="images/bambl.jpg" alt="Бамбл" class="favorite-item__img">
+                    </div>
+                </div>
+
+                <!-- Item 2: Латте с халвой -->
+                <div class="favorite-item">
+                    <div class="favorite-item__header">
+                        <h3 class="favorite-item__name">Латте с халвой</h3>
+                        <span class="favorite-item__price">390 ₽</span>
+                    </div>
+                    <p class="favorite-item__ingredients">Эспрессо · молоко · халва</p>
+                    <div class="favorite-item__image">
+                        <img src="images/lattehalva.jpg" alt="Латте с халвой" class="favorite-item__img">
+                    </div>
+                </div>
+
+                <!-- Item 3: Айс-латте -->
+                <div class="favorite-item">
+                    <div class="favorite-item__header">
+                        <h3 class="favorite-item__name">Айс-латте</h3>
+                        <span class="favorite-item__price">360 ₽</span>
+                    </div>
+                    <p class="favorite-item__ingredients">Эспрессо · молоко · сироп</p>
+                    <div class="favorite-item__image">
+                        <img src="images/icelatte.jpg" alt="Айс-латте" class="favorite-item__img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about__container">
+            <div class="about__content">
+                <p class="about__subtitle">О НАС</p>
+                <h2 class="about__title">Уютная маленькая кофейня в центре города</h2>
+                <p class="about__description">
+                    Всего пять столов, мягкий свет и музыка вполголоса. Бесплатный Wi-Fi, розетки у каждого стола и всегда рады гостям с собаками.
+                </p>
+                <div class="about__features">
+                    <div class="feature-item"><img src="images/icon1.png" alt="" class="feature-icon"><span>Кофе с собой</span></div>
+                    <div class="feature-item"><img src="images/icon2.png" alt="" class="feature-icon"><span>WC</span></div>
+                    <div class="feature-item"><img src="images/icon4.png" alt="" class="feature-icon"><span>Еда на вынос</span></div>
+                    <div class="feature-item"><img src="images/icon5.png" alt="" class="feature-icon"><span>Можно с животными</span></div>
+                    <div class="feature-item"><img src="images/icon6.png" alt="" class="feature-icon"><span>Завтраки</span></div>
+                    <div class="feature-item"><img src="images/icon7.png" alt="" class="feature-icon"><span>Розетки</span></div>
+                    <div class="feature-item"><img src="images/icon3.png" alt="" class="feature-icon"><span>Wi-Fi</span></div>
+                </div>
+            </div>
+
+            <div class="about__gallery">
+                <div class="gallery-column gallery-column--left">
+                    <div class="gallery-item" onclick="openLightbox(0)">
+                        <img src="images/photo2.jpg" alt="Интерьер" class="gallery-img">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(1)">
+                        <img src="images/photo3.jpg" alt="Барная стойка" class="gallery-img">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(2)">
+                        <img src="images/photo4.jpg" alt="Фасад" class="gallery-img">
+                    </div>
+                </div>
+                <div class="gallery-column gallery-column--right">
+                    <div class="gallery-item gallery-item--tall" onclick="openLightbox(3)">
+                        <img src="images/photo5.jpg" alt="Табличка Корица" class="gallery-img">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(4)">
+                        <img src="images/photo6.jpg" alt="Кофе и булочка" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox__close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox__prev" onclick="changePhoto(-1)">&#10094;</button>
+        <button class="lightbox__next" onclick="changePhoto(1)">&#10095;</button>
+        <div class="lightbox__content">
+            <img src="" alt="" id="lightbox-img" class="lightbox__img">
+            <span id="lightbox-counter" class="lightbox__counter"></span>
+        </div>
+    </div>
+
+    <!-- Menu Page Section -->
+    <section class="menu-page" id="menu">
+        <div class="container">
+            <h1 class="menu-page__title">Меню</h1>
+            <p class="menu-page__subtitle">Заказы принимаются у бариста за барной стойкой</p>
+            <img src="images/meny.jpg" alt="Меню" class="menu-page__img">
+        </div>
+    </section>
+
+    <!-- Photos Gallery Section -->
+    <section class="photos-section" id="photos">
+        <div class="container">
+            <h2 class="photos-section__title">ФОТО</h2>
+            
+            <div class="photos-grid" id="photosGrid">
+                <div class="photo-item" onclick="openLightbox(5)">
+                    <img src="images/klybnika.jpg" alt="Клубника" class="photo-img">
+                </div>
+                <div class="photo-item" onclick="openLightbox(6)">
+                    <img src="images/kokot.jpg" alt="Кокот" class="photo-img">
+                </div>
+                <div class="photo-item" onclick="openLightbox(7)">
+                    <img src="images/semga.jpg" alt="Семга" class="photo-img">
+                </div>
+                <div class="photo-item" onclick="openLightbox(8)">
+                    <img src="images/icelatte.jpg" alt="Айс латте" class="photo-img">
+                </div>
+                <div class="photo-item" onclick="openLightbox(9)">
+                    <img src="images/chiz.jpg" alt="Чизкейк" class="photo-img">
+                </div>
+                <div class="photo-item" onclick="openLightbox(10)">
+                    <img src="images/bambl.jpg" alt="Бамбл" class="photo-img">
+                </div>
+                <div class="photo-item" onclick="openLightbox(11)">
+                    <img src="images/barxat.jpg" alt="Бархат" class="photo-img">
+                </div>
+                <div class="photo-item" onclick="openLightbox(12)">
+                    <img src="images/bylochka.jpg" alt="Булочка" class="photo-img">
+                </div>
+                
+                <!-- Hidden photos -->
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(13)">
+                    <img src="images/cirnik.jpg" alt="Сырник" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(14)">
+                    <img src="images/clasica.jpg" alt="Классика" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(15)">
+                    <img src="images/espresso-tonik.jpg" alt="Эспрессо тоник" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(16)">
+                    <img src="images/gorshok.jpg" alt="Горшок" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(17)">
+                    <img src="images/kakao.jpg" alt="Какао" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(18)">
+                    <img src="images/kapychino.jpg" alt="Капучино" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(19)">
+                    <img src="images/kasha.jpg" alt="Каша" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(20)">
+                    <img src="images/latte.jpg" alt="Латте" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(21)">
+                    <img src="images/lattehalva.jpg" alt="Латте халва" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(22)">
+                    <img src="images/limonad.jpg" alt="Лимонад" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(23)">
+                    <img src="images/medovik.jpg" alt="Медовик" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(24)">
+                    <img src="images/mindal.jpg" alt="Миндаль" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(25)">
+                    <img src="images/pirog.jpg" alt="Пирог" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(26)">
+                    <img src="images/smorodina.jpg" alt="Смородина" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(27)">
+                    <img src="images/tiramisy.jpg" alt="Тирамису" class="photo-img">
+                </div>
+                <div class="photo-item photo-item--hidden" onclick="openLightbox(28)">
+                    <img src="images/vetchina.jpg" alt="Ветчина" class="photo-img">
+                </div>
+                 <div class="photo-item photo-item--hidden" onclick="openLightbox(29)">
+                    <img src="images/okno.jpg" alt="Ветчина" class="photo-img">
+                </div>
+                 <div class="photo-item photo-item--hidden" onclick="openLightbox(30)">
+                    <img src="images/vet.jpg" alt="Ветчина" class="photo-img">
+                </div>
+                 <div class="photo-item photo-item--hidden" onclick="openLightbox(31)">
+                    <img src="images/elka.jpg" alt="Ветчина" class="photo-img">
+                </div>
+                 <div class="photo-item photo-item--hidden" onclick="openLightbox(32)">
+                    <img src="images/stakan.jpg" alt="Ветчина" class="photo-img">
+                </div>
+            </div>
+            
+            <button class="photos-section__btn" id="showMoreBtn" onclick="togglePhotos()">
+                Ещё
+            </button>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="contacts">
+        <div class="container">
+            <h2 class="map-section__title">КОНТАКТЫ</h2>
+            
+            <div class="map-section__content">
+                <div class="map-section__photo">
+                    <img src="images/photo1.jpg" alt="Кофейня Корица" class="map-section__photo-img">
+                </div>
+                
+                <div class="map-section__right">
+                    <div class="map-section__map">
+                        <iframe src="https://yandex.ru/map-widget/v1/-/CPXCbD-9" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allowfullscreen="true">
+                        </iframe>
+                    </div>
+                    
+                    <div class="map-section__links">
+                        <a href="https://yandex.ru/maps/-/CPXCbD-9" target="_blank" class="map-link">
+                            Яндекс карты Большая Московская 82
+                        </a>
+                    </div>
+                    
+                    <div class="map-section__info">
+                        <div class="map-info__item">
+                            <span class="map-info__label">Адрес:</span>
+                            <p class="map-info__text">Владимир, Большая Московская улица, 82</p>
+                        </div>
+                        
+                        <div class="map-info__item">
+                            <span class="map-info__label">Телефон:</span>
+                            <a href="tel:+79607343936" class="map-info__link">+7 960 734-39-36</a>
+                        </div>
+                        
+                        <div class="map-info__item map-info__item--hours">
+                            <span class="map-info__label">Режим работы:</span>
+                            <p class="map-info__text">Пн – вс. &nbsp; 9:00–21:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
+<section class="contact-form-section" id="feedback">
+    <div class="container">
+        <div class="contact-form__wrapper">
+            <!-- Левая колонка: заголовок + форма -->
+            <div class="contact-form__left">
+                <div class="contact-form__header">
+                    <span class="contact-form__subtitle">НАПИШИТЕ НАМ</span>
+                    <h2 class="contact-form__title">Есть вопрос или предложение?</h2>
+                    <p class="contact-form__description">
+                        Оставьте заявку — мы ответим в течение дня. 
+                        Бронируем столики для небольших компаний и отвечаем на все вопросы.
+                    </p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="contact-form__row">
+                        <div class="contact-form__group">
+                            <label for="name" class="contact-form__label">Ваше имя</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                class="contact-form__input" 
+                                placeholder="Как к вам обращаться?"
+                                required
+                            >
+                        </div>
+                        <div class="contact-form__group">
+                            <label for="phone" class="contact-form__label">Телефон</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="contact-form__input" 
+                                placeholder="+7 (___) ___-__-__"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label for="email" class="contact-form__label">Email (необязательно)</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="contact-form__input" 
+                            placeholder="example@mail.ru"
+                        >
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label for="message" class="contact-form__label">Сообщение</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            class="contact-form__textarea" 
+                            placeholder="Ваш вопрос, пожелание или дата бронирования..."
+                            rows="5"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="contact-form__footer">
+                        <button type="submit" class="contact-form__btn" id="submitBtn">
+                            Отправить сообщение
+                        </button>
+                        <span class="contact-form__note">
+                            Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                        </span>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Правая колонка: фото -->
+            <div class="contact-form__right">
+                <div class="contact-form__photo">
+                    <img src="images/okno.jpg" alt="Окно кофейни Корица" class="contact-form__photo-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div class="modal" id="formModal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+        <button class="modal__close" id="modalClose">&times;</button>
+        <div class="modal__body">
+            <div class="modal__icon" id="modalIcon">✓</div>
+            <h3 class="modal__title" id="modalTitle">Заявка отправлена!</h3>
+            <p class="modal__text" id="modalText">Мы получили ваше сообщение и ответим в течение дня.</p>
+        </div>
+    </div>
+</div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__column footer__column--logo">
+    <div class="footer__logo-wrap">
+        <img src="images/logotip.png" alt="Корица" class="footer__logo-img">
+        <h3 class="footer__logo">КОРИЦА</h3>
+    </div>
+    <p class="footer__description">
+        Уютная маленькая кофейня.<br>
+        Заходите как к себе.
+    </p>
+</div>
+                
+                <div class="footer__columns">
+                    <div class="footer__column">
+                        <h4 class="footer__title">АДРЕС</h4>
+                        <p class="footer__text">ул. Большая Московская 82</p>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">ЧАСЫ</h4>
+                        <p class="footer__text">Пн-Вс 8:00-21:00</p>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4 class="footer__title">МЫ В СЕТИ</h4>
+                       <div class="footer__links">
+                            <a href="https://t.me/koritsabm82" target="_blank" class="footer__link">Telegram</a>
+                            <a href="https://vk.com/koritsa_vladimir" target="_blank" class="footer__link">ВКонтакте</a>
+                            <a href="tel:+79607343936" class="footer__link">+7 960 734-39-36</a>
+                            <a href="mailto:Lazurina@gmail.com" class="footer__link">Lazurina@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__divider"></div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Кофейня КОРИЦА</p>
+                <p class="footer__slogan">Сделано с любовью к медленному утру</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+   <button class="scroll-top" id="scrollTopBtn" onclick="toggleScroll()">
+    <svg class="scroll-top__icon scroll-top__icon--up" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+    <svg class="scroll-top__icon scroll-top__icon--down" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
