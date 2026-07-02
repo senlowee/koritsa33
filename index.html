@@ -4,31 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корица - Кофейня</title>
-    <link rel="icon" type="image/jpeg" href="images/logotip.png">
+    <link rel="icon" type="image/png" href="images/logotip.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
    <header class="header">
-    <div class="container header__container">
-        <a href="#" class="header__logo-link">
-            <img src="images/logotip.png" alt="Корица" class="header__logo-icon">
-            <span class="header__logo-text">КОРИЦА</span>
-        </a>
-        <nav class="header__nav">
-            <a href="#about" class="header__link">О нас</a>
-            <a href="#menu" class="header__link">Меню</a>
-            <a href="#photos" class="header__link">Фото</a>
-            <a href="#feedback" class="header__link">Написать</a>
-            <a href="#contacts" class="header__link">Контакты</a>
-        </nav>
-        <a href="https://yandex.ru/maps/-/CPXCbD-9" target="_blank" class="header__btn btn-primary">Как добраться</a>
+    <div class="header__inner">
+        <div class="header__container">
+            <a href="#" class="header__logo-link">
+                <img src="images/logotip.png" alt="Кофейня Корица" class="header__logo-icon">
+                <span class="header__logo-text">КОРИЦА</span>
+            </a>
+            <nav class="header__nav">
+                <a href="#about" class="header__link">О нас</a>
+                <a href="#menu" class="header__link">Меню</a>
+                <a href="#photos" class="header__link">Фото</a>
+                <a href="#feedback" class="header__link">Написать</a>
+                <a href="#contacts" class="header__link">Контакты</a>
+            </nav>
+            <a href="https://yandex.ru/maps/-/CPXCbD-9" target="_blank" class="btn-outline">Как добраться</a>
+        </div>
     </div>
 </header>
-
     <!-- Main Hero Section -->
     <main class="hero">
         <div class="container hero__container">
@@ -180,15 +180,15 @@
         </div>
     </div>
 
-    <!-- Menu Page Section -->
-    <section class="menu-page" id="menu">
-        <div class="container">
-            <h1 class="menu-page__title">Меню</h1>
-            <p class="menu-page__subtitle">Заказы принимаются у бариста за барной стойкой</p>
-            <img src="images/meny.jpg" alt="Меню" class="menu-page__img">
-        </div>
-    </section>
-
+  <!-- Menu Page -->
+<section class="menu-page">
+    <div class="container">
+        <div class="menu-page__header">
+        <h2 class="menu-page__title">МЕНЮ</h2>
+        <p class="menu-page__subtitle">Заказы принимаются у бариста за барной стойкой</p>
+    </div>
+    <img src="images/meny.jpg" alt="Меню кофейни Корица" class="menu-page__img">
+</section>
     <!-- Photos Gallery Section -->
     <section class="photos-section" id="photos">
         <div class="container">
@@ -435,52 +435,45 @@
 </div>
     
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer__top">
-                <div class="footer__column footer__column--logo">
-    <div class="footer__logo-wrap">
-        <img src="images/logotip.png" alt="Корица" class="footer__logo-img">
-        <h3 class="footer__logo">КОРИЦА</h3>
-    </div>
-    <p class="footer__description">
-        Уютная маленькая кофейня.<br>
-        Заходите как к себе.
-    </p>
-</div>
-                
-                <div class="footer__columns">
-                    <div class="footer__column">
-                        <h4 class="footer__title">АДРЕС</h4>
-                        <p class="footer__text">ул. Большая Московская 82</p>
-                    </div>
-                    
-                    <div class="footer__column">
-                        <h4 class="footer__title">ЧАСЫ</h4>
-                        <p class="footer__text">Пн-Вс 8:00-21:00</p>
-                    </div>
-                    
-                    <div class="footer__column">
-                        <h4 class="footer__title">МЫ В СЕТИ</h4>
-                       <div class="footer__links">
-                            <a href="https://t.me/koritsabm82" target="_blank" class="footer__link">Telegram</a>
-                            <a href="https://vk.com/koritsa_vladimir" target="_blank" class="footer__link">ВКонтакте</a>
-                            <a href="tel:+79607343936" class="footer__link">+7 960 734-39-36</a>
-                            <a href="mailto:Lazurina@gmail.com" class="footer__link">Lazurina@gmail.com</a>
-                        </div>
+    <div class="footer__inner">
+        <div class="footer__top">
+            <div class="footer__column--logo">
+                <div class="footer__logo-wrap">
+                    <img src="images/logotip.png" alt="Кофейня Корица" class="footer__logo-img">
+                    <span class="footer__logo">КОРИЦА</span>
+                </div>
+                <p class="footer__description">Уютная маленькая кофейня.<br>Заходите как к себе.</p>
+            </div>
+            <div class="footer__columns">
+                <div class="footer__column">
+                    <h4 class="footer__title">АДРЕС</h4>
+                    <a href="https://yandex.ru/maps/-/CPXCbD-9" target="_blank" class="footer__link footer__link--address">
+                        ул. Большая Московская 82
+                    </a>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">ЧАСЫ</h4>
+                    <p class="footer__text">Пн-Вс 8:00-21:00</p>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">МЫ В СЕТИ</h4>
+                    <div class="footer__links">
+                        <a href="https://t.me/koritsabm82" target="_blank" class="footer__link">Telegram</a>
+                        <a href="https://vk.com/koritsa_vladimir" target="_blank" class="footer__link">ВКонтакте</a>
+                        <a href="tel:+79607343936" class="footer__link footer__link--phone" id="phoneLink">+7 960 734-39-36</a>
+                        <span class="footer__link footer__link--email" id="emailLink">Lazurina@gmail.com</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer__divider"></div>
-            
-            <div class="footer__bottom">
-                <p class="footer__copyright">© 2026 Кофейня КОРИЦА</p>
-                <p class="footer__slogan">Сделано с любовью к медленному утру</p>
-            </div>
         </div>
-    </footer>
+        <div class="footer__divider"></div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">© 2026 Кофейня КОРИЦА</p>
+            <p class="footer__slogan">Сделано с любовью к медленному утру</p>
+        </div>
+    </div>
+</footer>
 
     <script src="js/main.js"></script>
    <button class="scroll-top" id="scrollTopBtn" onclick="toggleScroll()">
