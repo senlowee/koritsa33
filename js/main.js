@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'images/photo4.jpg',
         'images/photo5.jpg',
         'images/photo6.jpg',
-        'images/meny.jpg',
         'images/klybnika.jpg',
         'images/kokot.jpg',
         'images/semga.jpg',
@@ -36,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'images/okno.jpg',
         'images/vet.jpg',
         'images/elka.jpg',
-        'images/stakan.jpg'
+        'images/stakan.jpg',
+        'img/menu/menu.webp'
     ];
 
     let currentPhotoIndex = 0;
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuImg = document.querySelector('.menu-page__img');
     if (menuImg) {
         menuImg.addEventListener('click', function() {
-            const menuIndex = galleryImages.indexOf('images/meny.jpg');
+            const menuIndex = galleryImages.indexOf('img/menu/menu.webp');
             if (menuIndex !== -1) {
                 openLightbox(menuIndex);
             }
@@ -124,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     let returnPosition = null;
 
-    // Запоминаем позицию при клике на якорную ссылку
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', () => {
             returnPosition = window.scrollY;
@@ -155,6 +154,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
     }
+
+    // ========================================
+    // ПЛАВНАЯ ПРОКРУТКА К СЕКЦИИ МЕНЮ
+    // ========================================
+    document.querySelectorAll('a[href="#menu"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const menuSection = document.getElementById('menu');
+            if (menuSection) {
+                const headerOffset = 100;
+                const elementPosition = menuSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
     // ========================================
     // КОНТАКТНАЯ ФОРМА С МОДАЛЬНЫМ ОКНОМ
@@ -252,10 +271,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========================================
-    // ИНТЕРАКТИВНЫЕ ССЫЛКИ В ФУТЕРЕ
+    // УВЕДОМЛЕНИЕ О КОПИРОВАНИИ
     // ========================================
-
-    // Показ уведомления о копировании
     function showCopyNotification(message) {
         const oldNotification = document.querySelector('.copy-notification');
         if (oldNotification) {
@@ -273,7 +290,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 
-    // Копирование телефона
+    // ========================================
+    // КОПИРОВАНИЕ ТЕЛЕФОНА (ФУТЕР)
+    // ========================================
     const phoneLink = document.getElementById('phoneLink');
     if (phoneLink) {
         phoneLink.addEventListener('click', function(e) {
@@ -295,7 +314,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Копирование email (без открытия почтового клиента)
+    // ========================================
+    // КОПИРОВАНИЕ EMAIL (ФУТЕР)
+    // ========================================
     const emailLink = document.getElementById('emailLink');
     if (emailLink) {
         emailLink.addEventListener('click', function() {
@@ -314,4 +335,30 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // ========================================
+    // КОПИРОВАНИЕ ТЕЛЕФОНА (СЕКЦИЯ КОНТАКТЫ)
+    // ========================================
+    const phoneElements = document.querySelectorAll('.phone-copy');
+    
+    phoneElements.forEach(phoneEl => {
+        phoneEl.addEventListener('click', function(e) {
+            e.preventDefault();
+            const phoneNumber = this.getAttribute('data-phone');
+            
+            if (phoneNumber) {
+                navigator.clipboard.writeText(phoneNumber).then(() => {
+                    showCopyNotification('✓ Номер телефона скопирован!');
+                }).catch(err => {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = phoneNumber;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    showCopyNotification('✓ Номер телефона скопирован!');
+                });
+            }
+        });
+    });
 });
