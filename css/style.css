@@ -18,7 +18,6 @@ html {
 }
 
 body {
-    scroll-margin-top: 80px;
     font-family: var(--font-secondary);
     color: var(--color-dark-brown);
     line-height: 1.6;
@@ -51,6 +50,17 @@ body {
     margin: 0 auto;
     border-left: 2px solid var(--color-dark-brown);
     border-right: 2px solid var(--color-dark-brown);
+}
+
+/* ========================================
+ПРОКРУТКА К СЕКЦИЯМ
+======================================== */
+#about,
+#menu,
+#photos,
+#contacts,
+#feedback {
+    scroll-margin-top: 100px;
 }
 
 /* ========================================
@@ -128,6 +138,12 @@ HEADER (ФИКСИРОВАННЫЙ)
     color: var(--color-light-brown);
 }
 
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .btn-outline {
     padding: 10px 24px;
     border: 1px solid var(--color-dark-brown);
@@ -138,6 +154,7 @@ HEADER (ФИКСИРОВАННЫЙ)
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
+    font-family: var(--font-secondary);
 }
 
 .btn-outline:hover {
@@ -155,6 +172,7 @@ HEADER (ФИКСИРОВАННЫЙ)
     transition: background-color 0.3s ease;
     text-decoration: none;
     display: inline-block;
+    font-family: var(--font-secondary);
 }
 
 .btn-primary:hover {
@@ -608,15 +626,15 @@ LIGHTBOX
 }
 
 /* ========================================
-   MENU PAGE
+MENU PAGE
 ======================================== */
 .menu-page {
     background-color: var(--color-white);
-    padding: 60px 0 80px;  /* ← ЭТА СТРОКА отвечает за ОТСТУПЫ сверху и снизу всей секции МЕНЮ */
+    padding: 60px 0 80px;
 }
 
 .menu-page__header {
-    margin-bottom: 35px;  /* ← ЭТА СТРОКА отвечает за ОТСТУП между заголовком "Меню" и фотографией меню */
+    margin-bottom: 40px;
 }
 
 .menu-page__title {
@@ -625,21 +643,19 @@ LIGHTBOX
     font-weight: 700;
     color: var(--color-dark-brown);
     text-align: left;
-    
-    padding: 60 0 80px;
+    margin-bottom: 8px;
 }
 
 .menu-page__subtitle {
     font-size: 18px;
     color: var(--color-dark-brown);
     font-style: italic;
-    margin-bottom: 5px;
 }
 
 .menu-page__img {
     width: 100%;
-    max-width: 1200px;  
-    margin: 0 auto;    /* ← Центрирует фотографию */
+    max-width: 950px;
+    margin: 0 auto;
     display: block;
     border-radius: 16px;
     border: 1px solid #5A4A3A;
@@ -652,27 +668,6 @@ LIGHTBOX
     transform: scale(1.02);
 }
 
-/* Мобильная версия */
-@media (max-width: 768px) {
-    .menu-page {
-        padding: 40px 0 60px;
-    }
-    .menu-page__header {
-        margin-bottom: 30px;
-    }
-    .menu-page__title {
-        font-size: 32px;
-        text-align: center;
-    }
-    .menu-page__subtitle {
-        font-size: 14px;
-        text-align: center;
-    }
-    .menu-page__img {
-        max-width: 100%;
-        border-radius: 12px;
-    }
-}
 /* ========================================
 PHOTOS SECTION
 ======================================== */
@@ -864,7 +859,7 @@ MAP SECTION
     font-size: 16px;
     color: var(--color-dark-brown);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
 
@@ -875,6 +870,31 @@ MAP SECTION
 .map-info__item--hours {
     padding-top: 20px;
     border-top: 1px solid #E2D5C2;
+}
+
+/* Телефон копируется при клике */
+.phone-copy {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 400;
+}
+
+.phone-copy:hover {
+    color: var(--color-light-brown);
+    transform: translateY(-2px);
+}
+
+.phone-copy::after {
+    content: ' (нажмите для копирования)';
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--color-light-brown);
+}
+
+.phone-copy:hover::after {
+    opacity: 0.7;
 }
 
 /* ========================================
@@ -1540,17 +1560,18 @@ SCROLL TO TOP BUTTON
     }
     
     .menu-page {
-        padding: 40px 0;
+        padding: 40px 0 60px;
     }
     .menu-page__header {
-        padding: 0 20px;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
     }
     .menu-page__title {
         font-size: 32px;
+        text-align: center;
     }
     .menu-page__subtitle {
         font-size: 14px;
+        text-align: center;
     }
     .menu-page__img {
         max-width: 100%;
