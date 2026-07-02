@@ -3,40 +3,40 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Все фото для лайтбокса
     const galleryImages = [
-        'images/photo2.jpg',
-        'images/photo3.jpg',
-        'images/photo4.jpg',
-        'images/photo5.jpg',
-        'images/photo6.jpg',
-        'images/klybnika.jpg',
-        'images/kokot.jpg',
-        'images/semga.jpg',
-        'images/icelatte.jpg',
-        'images/chiz.jpg',
-        'images/bambl.jpg',
-        'images/barxat.jpg',
-        'images/bylochka.jpg',
-        'images/cirnik.jpg',
-        'images/clasica.jpg',
-        'images/espresso-tonik.jpg',
-        'images/gorshok.jpg',
-        'images/kakao.jpg',
-        'images/kapychino.jpg',
-        'images/kasha.jpg',
-        'images/latte.jpg',
-        'images/lattehalva.jpg',
-        'images/limonad.jpg',
-        'images/medovik.jpg',
-        'images/mindal.jpg',
-        'images/pirog.jpg',
-        'images/smorodina.jpg',
-        'images/tiramisy.jpg',
-        'images/vetchina.jpg',
-        'images/okno.jpg',
-        'images/vet.jpg',
-        'images/elka.jpg',
-        'images/stakan.jpg',
-        'img/menu/menu.webp'
+        'images/photo2.jpg',        // 0
+        'images/photo3.jpg',        // 1
+        'images/photo4.jpg',        // 2
+        'images/photo5.jpg',        // 3
+        'images/photo6.jpg',        // 4
+        'images/klybnika.jpg',      // 5
+        'images/kokot.jpg',         // 6
+        'images/semga.jpg',         // 7
+        'images/icelatte.jpg',      // 8
+        'images/chiz.jpg',          // 9
+        'images/bambl.jpg',         // 10
+        'images/barxat.jpg',        // 11
+        'images/bylochka.jpg',      // 12
+        'images/cirnik.jpg',        // 13
+        'images/clasica.jpg',       // 14
+        'images/espresso-tonik.jpg',// 15
+        'images/gorshok.jpg',       // 16
+        'images/kakao.jpg',         // 17
+        'images/kapychino.jpg',     // 18
+        'images/kasha.jpg',         // 19
+        'images/latte.jpg',         // 20
+        'images/lattehalva.jpg',    // 21
+        'images/limonad.jpg',       // 22
+        'images/medovik.jpg',       // 23
+        'images/mindal.jpg',        // 24
+        'images/pirog.jpg',         // 25
+        'images/smorodina.jpg',     // 26
+        'images/tiramisy.jpg',      // 27
+        'images/vetchina.jpg',      // 28
+        'images/okno.jpg',          // 29
+        'images/vet.jpg',           // 30
+        'images/elka.jpg',          // 31
+        'images/stakan.jpg',        // 32
+        'images/meny.jpg'           // 33
     ];
 
     let currentPhotoIndex = 0;
@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateLightbox();
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+        console.log('Открыто фото #' + index + ': ' + galleryImages[index]);
     };
 
     window.closeLightbox = function() {
@@ -75,9 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuImg = document.querySelector('.menu-page__img');
     if (menuImg) {
         menuImg.addEventListener('click', function() {
-            const menuIndex = galleryImages.indexOf('img/menu/menu.webp');
+            const menuIndex = galleryImages.indexOf('images/meny.png');
             if (menuIndex !== -1) {
                 openLightbox(menuIndex);
+            } else {
+                console.error('Меню не найдено в массиве!');
             }
         });
         menuImg.style.cursor = 'pointer';
