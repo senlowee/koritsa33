@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'images/photo4.jpg',
         'images/photo5.jpg',
         'images/photo6.jpg',
+        'images/meny.jpg',
         'images/klybnika.jpg',
         'images/kokot.jpg',
         'images/semga.jpg',
@@ -43,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCounter = document.getElementById('lightbox-counter');
 
-    // Lightbox
+    // ========================================
+    // LIGHTBOX
+    // ========================================
     window.openLightbox = function(index) {
         currentPhotoIndex = index;
         updateLightbox();
@@ -68,12 +71,24 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${galleryImages.length}`;
     }
 
-    // Close on background click
+    // Открытие фото меню в лайтбоксе
+    const menuImg = document.querySelector('.menu-page__img');
+    if (menuImg) {
+        menuImg.addEventListener('click', function() {
+            const menuIndex = galleryImages.indexOf('images/meny.jpg');
+            if (menuIndex !== -1) {
+                openLightbox(menuIndex);
+            }
+        });
+        menuImg.style.cursor = 'pointer';
+    }
+
+    // Закрытие по клику на фон
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
 
-    // Keyboard navigation
+    // Навигация с клавиатуры
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
@@ -81,7 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'ArrowLeft') changePhoto(-1);
     });
 
-    // Show/Hide Photos
+    // ========================================
+    // ПОКАЗАТЬ/СКРЫТЬ ФОТО
+    // ========================================
     let allPhotosVisible = false;
 
     window.togglePhotos = function() {
@@ -101,7 +118,9 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.textContent = allPhotosVisible ? 'Свернуть' : 'Ещё';
     };
 
-    // Scroll Back Button
+    // ========================================
+    // КНОПКА СКРОЛЛА ВВЕРХ
+    // ========================================
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     let returnPosition = null;
 
@@ -138,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // CONTACT FORM WITH MODAL
+    // КОНТАКТНАЯ ФОРМА С МОДАЛЬНЫМ ОКНОМ
     // ========================================
     const contactForm = document.getElementById('contactForm');
     const formModal = document.getElementById('formModal');
@@ -152,16 +171,13 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Получаем данные формы
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             
-            // Показываем состояние загрузки
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправка...';
             
             try {
-                // Отправляем на FormSubmit (email: senlowee@gmail.com)
                 const response = await fetch('https://formsubmit.co/ajax/senlowee@gmail.com', {
                     method: 'POST',
                     headers: {
@@ -183,14 +199,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const result = await response.json();
                 
                 if (result.success || response.ok) {
-                    // Успех
                     showModal('success', 'Заявка отправлена!', 'Мы получили ваше сообщение и ответим в течение дня.');
                     contactForm.reset();
                 } else {
                     throw new Error('Ошибка отправки');
                 }
             } catch (error) {
-                // Ошибка
                 showModal('error', 'Ошибка отправки', 'Пожалуйста, попробуйте ещё раз или позвоните нам напрямую.');
             } finally {
                 submitBtn.disabled = false;
@@ -199,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Показ модального окна
     function showModal(type, title, text) {
         if (type === 'success') {
             modalIcon.textContent = '✓';
@@ -215,7 +228,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'hidden';
     }
 
-    // Закрытие модального окна
     function closeModal() {
         formModal.classList.remove('active');
         document.body.style.overflow = '';
@@ -225,7 +237,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modalClose.addEventListener('click', closeModal);
     }
 
-    // Закрытие по клику на оверлей
     if (formModal) {
         formModal.addEventListener('click', function(e) {
             if (e.target === formModal.querySelector('.modal__overlay')) {
@@ -234,10 +245,73 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Закрытие по Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && formModal.classList.contains('active')) {
             closeModal();
         }
     });
+
+    // ========================================
+    // ИНТЕРАКТИВНЫЕ ССЫЛКИ В ФУТЕРЕ
+    // ========================================
+
+    // Показ уведомления о копировании
+    function showCopyNotification(message) {
+        const oldNotification = document.querySelector('.copy-notification');
+        if (oldNotification) {
+            oldNotification.remove();
+        }
+        
+        const notification = document.createElement('div');
+        notification.className = 'copy-notification';
+        notification.textContent = message || '✓ Скопировано!';
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideIn 0.3s ease reverse';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
+    // Копирование телефона
+    const phoneLink = document.getElementById('phoneLink');
+    if (phoneLink) {
+        phoneLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const phoneNumber = '+7 960 734-39-36';
+            
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                showCopyNotification('✓ Номер телефона скопирован!');
+            }).catch(err => {
+                const textArea = document.createElement('textarea');
+                textArea.value = phoneNumber;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showCopyNotification('✓ Номер телефона скопирован!');
+            });
+        });
+    }
+
+    // Копирование email (без открытия почтового клиента)
+    const emailLink = document.getElementById('emailLink');
+    if (emailLink) {
+        emailLink.addEventListener('click', function() {
+            const emailAddress = 'Lazurina@gmail.com';
+            
+            navigator.clipboard.writeText(emailAddress).then(() => {
+                showCopyNotification('✓ Email скопирован!');
+            }).catch(err => {
+                const textArea = document.createElement('textarea');
+                textArea.value = emailAddress;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showCopyNotification('✓ Email скопирован!');
+            });
+        });
+    }
 });
