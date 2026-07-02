@@ -121,43 +121,61 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.textContent = allPhotosVisible ? 'Свернуть' : 'Ещё';
     };
 
-    // ========================================
-    // КНОПКА СКРОЛЛА ВВЕРХ
-    // ========================================
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    let returnPosition = null;
+  // ========================================
+// КОНТАКТНАЯ ФОРМА С МОДАЛЬНЫМ ОКНОМ
+// ========================================
+const contactForm = document.getElementById('contactForm');
+const formModal = document.getElementById('formModal');
+const modalClose = document.getElementById('modalClose');
+const modalIcon = document.getElementById('modalIcon');
+const modalTitle = document.getElementById('modalTitle');
+const modalText = document.getElementById('modalText');
+const submitBtn = document.getElementById('submitBtn');
 
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', () => {
-            returnPosition = window.scrollY;
-        });
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        console.log('Форма отправляется...');
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        console.log('Данные формы:', data);
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка...';
+        
+        try {
+            // Отправка через FormSubmit
+            const response = await fetch('https://formsubmit.co/ajax/senlowee@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            });
+            
+            console.log('Статус ответа:', response.status);
+            
+            const result = await response.json();
+            console.log('Результат:', result);
+            
+            if (result.success) {
+                showModal('success', 'Заявка отправлена!', 'Мы получили ваше сообщение и ответим в течение дня.');
+                contactForm.reset();
+            } else {
+                throw new Error('Ошибка отправки: ' + JSON.stringify(result));
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            showModal('error', 'Ошибка отправки', 'Пожалуйста, попробуйте ещё раз или позвоните нам напрямую.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Отправить сообщение';
+        }
     });
-
-    if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400 || returnPosition !== null) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        window.toggleScroll = function() {
-            if (returnPosition !== null) {
-                window.scrollTo({
-                    top: returnPosition,
-                    behavior: 'smooth'
-                });
-                returnPosition = null;
-            } else {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        };
-    }
-
+}
     // ========================================
     // ПЛАВНАЯ ПРОКРУТКА К СЕКЦИИ МЕНЮ
     // ========================================
