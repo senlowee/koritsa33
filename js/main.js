@@ -236,3 +236,88 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// ========================================
+// КОНТАКТНАЯ ФОРМА С МОДАЛЬНЫМ ОКНОМ
+// ========================================
+const contactForm = document.getElementById('contactForm');
+const formModal = document.getElementById('formModal');
+const modalClose = document.getElementById('modalClose');
+const modalIcon = document.getElementById('modalIcon');
+const modalTitle = document.getElementById('modalTitle');
+const modalText = document.getElementById('modalText');
+const submitBtn = document.getElementById('submitBtn');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка...';
+        
+        try {
+            // Отправка через FormSubmit (AJAX)
+            const response = await fetch('https://formsubmit.co/ajax/senlowee@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success === "true" || data.success === true || response.ok) {
+                showModal('success', 'Заявка отправлена!', 'Мы получили ваше сообщение и ответим в течение дня.');
+                contactForm.reset();
+            } else {
+                throw new Error('Ошибка отправки');
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            showModal('error', 'Ошибка отправки', 'Пожалуйста, попробуйте ещё раз или позвоните нам напрямую.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Отправить сообщение';
+        }
+    });
+}
+
+function showModal(type, title, text) {
+    if (type === 'success') {
+        modalIcon.textContent = '✓';
+        modalIcon.className = 'modal__icon';
+    } else {
+        modalIcon.textContent = '✕';
+        modalIcon.className = 'modal__icon modal__icon--error';
+    }
+    
+    modalTitle.textContent = title;
+    modalText.textContent = text;
+    formModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    formModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+}
+
+if (formModal) {
+    formModal.addEventListener('click', function(e) {
+        if (e.target === formModal.querySelector('.modal__overlay')) {
+            closeModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && formModal.classList.contains('active')) {
+        closeModal();
+    }
+});
