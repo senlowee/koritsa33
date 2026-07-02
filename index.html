@@ -336,7 +336,7 @@
         </div>
     </section>
 
-<!-- ФОРМА ОБРАТНОЙ СВЯЗИ (FormSubmit) -->
+<!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
 <section class="contact-form-section" id="feedback">
     <div class="container">
         <div class="contact-form__wrapper">
@@ -351,14 +351,7 @@
                     </p>
                 </div>
 
-                <form class="contact-form" action="https://formsubmit.co/senlowee@gmail.com" method="POST">
-                    <!-- Скрытые настройки FormSubmit -->
-                    <input type="hidden" name="_subject" value="📬 Новая заявка с сайта Корица!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://koritsa33.vercel.app/#feedback">
-                    <input type="text" name="_honey" style="display:none">
-                    
+                <form class="contact-form" id="contactForm">
                     <div class="contact-form__row">
                         <div class="contact-form__group">
                             <label for="name" class="contact-form__label">Ваше имя</label>
@@ -427,6 +420,19 @@
         </div>
     </div>
 </section>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div class="modal" id="formModal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+        <button class="modal__close" id="modalClose">&times;</button>
+        <div class="modal__body">
+            <div class="modal__icon" id="modalIcon">✓</div>
+            <h3 class="modal__title" id="modalTitle">Заявка отправлена!</h3>
+            <p class="modal__text" id="modalText">Мы получили ваше сообщение и ответим в течение дня.</p>
+        </div>
+    </div>
+</div>
 
     <footer class="footer">
     <div class="footer__inner">
